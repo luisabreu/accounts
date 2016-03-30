@@ -211,7 +211,7 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 
-artifacts/
-bower_components/
-wwwroot/css/
-wwwroot/js/
+
+src/Accounts/bower_components/
+src/Accounts/wwwroot/css/
+src/Accounts/wwwroot/js/
