@@ -25,6 +25,7 @@ namespace Accounts
         {
             app.UseIISPlatformHandler();
 
+            app.UseStaticFiles();
             app.Run(async (context) =>
             {
                

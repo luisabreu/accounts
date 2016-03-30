@@ -13,8 +13,11 @@ var gulp = require('gulp'),
 
 var paths = {
     bootstrapCss: './bower_components/bootstrap/dist/css/bootstrap.css',
+    bootstrapSbAdminCss: './bower_components/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css',
+    bootstrapTimelineCss: './bower_components/startbootstrap-sb-admin-2/dist/css/timeline.css',
 
     bootstrapJs: './bower_components/bootstrap/dist/js/bootstrap.js',
+    bootstrapSbAdminJs: './bower_components/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js',
     jqueryJs: './bower_components/jquery/dist/bootstrap.js',
 
     jsDest: './wwwroot/js',
@@ -25,26 +28,26 @@ var paths = {
 
 
 gulp.task('min:js', function() {
-    return gulp.src([paths.jqueryJs, paths.bootstrapJs])
-        .pipe(concat(paths.jsDest + "/min/site.min.js"))
+    return gulp.src([paths.jqueryJs, paths.bootstrapJs, paths.bootstrapSbAdminJs])
+        .pipe(concat(paths.jsDest + '/min/site.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('.'));
 });
 
-gulp.task("min:css", function() {
-    return gulp.src([paths.bootstrapCss])
+gulp.task('min:css', function() {
+    return gulp.src([paths.bootstrapCss, paths.bootstrapTimelineCss, paths.bootstrapSbAdminCss])
+        .pipe(concat(paths.cssDest + '/min/site.min.css'))
         .pipe(cssmin())
-        .pipe(rename('site.min.css'))
-        .pipe(gulp.dest(paths.cssDest + "/min/"));
+        .pipe(gulp.dest('.'));
 });
 
 gulp.task('copy:css', function () {
-    return gulp.src([paths.bootstrapCss])
+    return gulp.src([paths.bootstrapCss, paths.bootstrapTimelineCss, paths.bootstrapSbAdminCss])
         .pipe(gulp.dest(paths.cssDest));
 });
 
 gulp.task('copy:js', function () {
-    return gulp.src([paths.jqueryJs, paths.bootstrapJs])
+    return gulp.src([paths.jqueryJs, paths.bootstrapJs, paths.bootstrapSbAdminJs])
         .pipe(gulp.dest(paths.jsDest));
 });
 
