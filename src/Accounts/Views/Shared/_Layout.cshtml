@@ -4,7 +4,15 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link href="css/min/site.min.css" rel="stylesheet" />
+    <environment names="Development">
+        <link href="~/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/css/sb-admin-2.css" rel="stylesheet" />
+        <link href="~/css/timeline.css" rel="stylesheet" />
+        <link href="~/css/main.css" rel="stylesheet" />
+    </environment>
+    <environment names="Staging,Development">
+        <link href="css/min/site.min.css" rel="stylesheet" />
+    </environment>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -18,10 +26,17 @@
             <a class="navbar-brand" href="index.html">Simple form</a>
         </div>
     </nav>
-<div class="container">
+<div class="container main">
     @RenderBody()
 </div>
-<script src="~/js/min/site.min.js"></script>
+<environment names="Development">
+    <script src="~/js/min/site.min.js"></script>
+</environment>
+<environment names="Staging,Development">
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/sb-admin-2.js"></script>
+</environment>
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -12,17 +12,24 @@
     <div class="panel-body">
         <form class="margin-bottom-40" role="form">
             <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                <label asp-for="GivenName">Given name:</label>
+                <input type="text" class="form-control" asp-for="GivenName">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label asp-for="Surname">Surname:</label>
+                <input type="text" class="form-control" asp-for="Surname">
             </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox"> Check me out
-                </label>
+            <div class="form-group">
+                <label asp-for="Surname">Username:</label>
+                <input type="text" class="form-control" asp-for="Username">
+            </div>
+            <div class="form-group">
+                <label asp-for="Description">Description:</label>
+                <input type="text" class="form-control" asp-for="Description">
+            </div>
+            <div class="form-group">
+                <label asp-for="Department">Department:</label>
+                <input type="text" class="form-control" asp-for="Department">
             </div>
             <button type="submit" class="btn-u btn-u-blue">Submit</button>
         </form>

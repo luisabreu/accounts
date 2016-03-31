@@ -12,13 +12,15 @@ var gulp = require('gulp'),
 
 
 var paths = {
+    mainCss: './css/main.css',
+
     bootstrapCss: './bower_components/bootstrap/dist/css/bootstrap.css',
     bootstrapSbAdminCss: './bower_components/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css',
     bootstrapTimelineCss: './bower_components/startbootstrap-sb-admin-2/dist/css/timeline.css',
 
     bootstrapJs: './bower_components/bootstrap/dist/js/bootstrap.js',
     bootstrapSbAdminJs: './bower_components/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js',
-    jqueryJs: './bower_components/jquery/dist/bootstrap.js',
+    jqueryJs: './bower_components/jquery/dist/jquery.js',
 
     jsDest: './wwwroot/js',
     cssDest: './wwwroot/css',
@@ -35,19 +37,19 @@ gulp.task('min:js', function() {
 });
 
 gulp.task('min:css', function() {
-    return gulp.src([paths.bootstrapCss, paths.bootstrapTimelineCss, paths.bootstrapSbAdminCss])
+    return gulp.src([paths.bootstrapCss, paths.bootstrapTimelineCss, paths.bootstrapSbAdminCss, paths.mainCss])
         .pipe(concat(paths.cssDest + '/min/site.min.css'))
         .pipe(cssmin())
         .pipe(gulp.dest('.'));
 });
 
 gulp.task('copy:css', function () {
-    return gulp.src([paths.bootstrapCss, paths.bootstrapTimelineCss, paths.bootstrapSbAdminCss])
+    return gulp.src([paths.bootstrapCss, paths.bootstrapTimelineCss, paths.bootstrapSbAdminCss, paths.mainCss])
         .pipe(gulp.dest(paths.cssDest));
 });
 
 gulp.task('copy:js', function () {
-    return gulp.src([paths.jqueryJs, paths.bootstrapJs, paths.bootstrapSbAdminJs])
+    return gulp.src([paths.jqueryJs, paths.bootstrapJs, paths.bootstrapSbAdminJs, paths.mainCss])
         .pipe(gulp.dest(paths.jsDest));
 });
 

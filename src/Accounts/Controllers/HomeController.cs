@@ -10,7 +10,7 @@ using Microsoft.AspNet.Mvc;
 namespace Accounts.Controllers {
     public class HomeController : Controller {
         // GET: /<controller>/
-        public IActionResult Index() {
+        public IActionResult Index(UserInfoViewModel model) {
             return View(new UserInfoViewModel());
         }
     }
