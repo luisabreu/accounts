@@ -5,6 +5,7 @@
         public string Surname { get; set; }
         public string Description { get; set; }
         public string Department { get; set; }
+        public bool Generated { get; set; }
         public byte[] Version { get; set; }
     }
 }

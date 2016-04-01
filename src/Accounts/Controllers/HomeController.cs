@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Accounts.Model;
 using Accounts.ViewModel;
 using Microsoft.AspNet.Mvc;
 
@@ -9,6 +6,12 @@ using Microsoft.AspNet.Mvc;
 
 namespace Accounts.Controllers {
     public class HomeController : Controller {
+        private readonly UsersContext _context;
+
+        public HomeController(UsersContext context) {
+            _context = context;
+        }
+
         // GET: /<controller>/
         public IActionResult Index(UserInfoViewModel model) {
             return View(new UserInfoViewModel());

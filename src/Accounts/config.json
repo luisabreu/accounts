@@ -1,5 +1,3 @@
 ﻿{
-  "connectionStrings": {
-    "bd":  "blah212"
-  }
+  "usersCnnString": "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Users.mdf;Initial Catalog=USers;Integrated Security=True"
 }
