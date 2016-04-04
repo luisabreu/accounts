@@ -1,37 +1,9 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@model Accounts.ViewModel.UserInfoViewModel
 
-<div class="panel panel-primary margin-bottom-40">
-    <div class="panel-heading">
-        <h3 class="panel-title">
-            <i class="fa fa-tasks"></i> Basic Form
-        </h3>
-    </div>
-    <div class="panel-body">
-        <form class="margin-bottom-40" role="form">
-            <div class="form-group">
-                <label asp-for="GivenName">Given name:</label>
-                <input type="text" class="form-control" asp-for="GivenName">
-            </div>
-            <div class="form-group">
-                <label asp-for="Surname">Surname:</label>
-                <input type="text" class="form-control" asp-for="Surname">
-            </div>
-            <div class="form-group">
-                <label asp-for="Surname">Username:</label>
-                <input type="text" class="form-control" asp-for="Username">
-            </div>
-            <div class="form-group">
-                <label asp-for="Description">Description:</label>
-                <input type="text" class="form-control" asp-for="Description">
-            </div>
-            <div class="form-group">
-                <label asp-for="Department">Department:</label>
-                <input type="text" class="form-control" asp-for="Department">
-            </div>
-            <button type="submit" class="btn-u btn-u-blue">Submit</button>
-        </form>
-    </div>
-</div>
+@model Accounts.ViewModel.UserInfoListViewModel
+
+@if (Model.Users == null || !Model.Users.Any()) {
+    <p>Não existem utilizadores registados. Navegue até <a asp-controller="Home" asp-action="NewUser">página registo</a> para adicionar um novo utilizador</p>
+}
