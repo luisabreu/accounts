@@ -16,13 +16,28 @@ namespace Accounts.Controllers {
         }
 
         // GET: /<controller>/
-        public async Task<IActionResult> Index() {
+        public async Task<ViewResult> Index() {
             var users = (await _context.Users.ToListAsync()).Select(u => u.ToScreen()).ToList();
-            return View(users);
+            return View(new UserInfoListViewModel {Users = users});
         }
 
-        public IActionResult NewUser(UserInfoViewModel model) {
-            return View(new UserInfoViewModel());
+        public async Task<IActionResult> AddUser(UserInfoViewModel userInfo) {
+            if (ModelState.IsValid) {
+                var user = new UserInfo {
+                                            Department = userInfo.Department,
+                                            Description = userInfo.Description,
+                                            GivenName = userInfo.GivenName,
+                                            Surname = userInfo.Surname
+                                        };
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View("NewUser", userInfo);
+        }
+
+        public IActionResult NewUser(UserInfoViewModel viewModel) {
+            return View(viewModel);
         }
     }
 }

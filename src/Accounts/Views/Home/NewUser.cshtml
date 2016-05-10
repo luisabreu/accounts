@@ -7,7 +7,7 @@
         </h3>
     </div>
     <div class="panel-body">
-        <form class="margin-bottom-40" role="form">
+        <form class="margin-bottom-40" role="form" asp-controller="Home" asp-action="AddUser" method="post">
             <div class="form-group">
                 <label asp-for="GivenName">Given name:</label>
                 <input type="text" class="form-control" asp-for="GivenName">
@@ -16,10 +16,7 @@
                 <label asp-for="Surname">Surname:</label>
                 <input type="text" class="form-control" asp-for="Surname">
             </div>
-            <div class="form-group">
-                <label asp-for="Surname">Username:</label>
-                <input type="text" class="form-control" asp-for="Username">
-            </div>
+        
             <div class="form-group">
                 <label asp-for="Description">Description:</label>
                 <input type="text" class="form-control" asp-for="Description">

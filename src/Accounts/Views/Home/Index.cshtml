@@ -3,7 +3,33 @@
 *@
 
 @model Accounts.ViewModel.UserInfoListViewModel
-
+@Html.ActionLink("Add new user", "NewUser", "Home")
 @if (Model.Users == null || !Model.Users.Any()) {
-    <p>Não existem utilizadores registados. Navegue até <a asp-controller="Home" asp-action="NewUser">página registo</a> para adicionar um novo utilizador</p>
+    <p>No registered users.</p>
+}
+else {
+    <table>
+        <thead>
+        <tr>
+            <td></td>
+            <td>Given name</td>
+            <td>Surname</td>
+            <td>Departmentt</td>
+            <td>Generated</td>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var userInfo in Model.Users)
+        {
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td>@userInfo.GivenName</td>
+                <td>@userInfo.Surname</td>
+                <td>@userInfo.Department</td>
+                <td><input type="checkbox" readonly checked="@userInfo.Generated"/></td>
+            </tr>
+        }
+        
+        </tbody>
+    </table>
 }

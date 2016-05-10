@@ -10,8 +10,6 @@ namespace Accounts.ViewModel {
         [Required]
         public string Surname { get; set; }
 
-        [Required]
-        public string Username { get; set; }
 
         [Required]
         public string Description { get; set; }

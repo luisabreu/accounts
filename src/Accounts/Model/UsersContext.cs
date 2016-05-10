@@ -15,7 +15,7 @@ namespace Accounts.Model {
             userDb.ToTable("Users");
 
             userDb.HasKey(u => u.IdUserInfo);
-            userDb.Property(u => u.Version).IsConcurrencyToken();
+            userDb.Property(u => u.Version).ValueGeneratedOnAddOrUpdate().IsConcurrencyToken();
 
             userDb.Property(u => u.GivenName).IsRequired();
             userDb.Property(u => u.Surname).IsRequired();
